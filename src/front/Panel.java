@@ -14,13 +14,16 @@ public class Panel extends JPanel {
 	 * Create the panel.
 	 */
 	public Panel() {
+		
+		
 		setBorder(new BevelBorder(BevelBorder.LOWERED, Color.BLACK, Color.BLACK, Color.BLACK, Color.BLACK));
 		setBounds(new Rectangle(0, 0, 100, 100));
 		setLayout(null);
 		
 		JLabel plataforma = new JLabel("New label");
-		plataforma.setBounds(10, 11, 631, 378);
+		plataforma.setBounds(10, 11, 660, 400);
 		add(plataforma);
-
+		
+		CriadorPista pista = new CriadorPista(plataforma);
 	}
 }
