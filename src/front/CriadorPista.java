@@ -18,6 +18,10 @@ public class CriadorPista {
 		label.setIcon(drawnWay());
 	}
 	
+	public void WalkFrog(JLabel Sapo, int raia, int distancia) {
+		
+	}
+	
 	
 	public ImageIcon drawnWay() {
 		int width=850, height=400, wC = 30, hC = 30, fxP = 12, fyP = 10, lxP = 800, lyP = 10;
@@ -49,16 +53,16 @@ public class CriadorPista {
 				
 				g.fillArc(fxP-11, fyP, wC, hC, 100, 85);
 				//curva da ponta esquerda inferior
-				g.fillArc(fx2P-11, fy2P-30, wC, hC, -100, -90);
+				g.fillArc(fx2P-11, fy2P-30, wC, hC, -100, -120);
 				//curva da ponta direita superior
-				g.fillArc(lxP, lyP, wC, hC, 0, 100);
+				g.fillArc(lxP+10, lyP-25, wC, hC, 0, 100);
 				//curva da ponta direita inferior
 				g.fillArc(lx2P-15, ly2P-30, wC, hC, 0, -100);
 				
-			}/*else {
-				g.fillRect(fxP-10, fyP-4, 14, tamanhoVertical+36);
-				g.fillRect(lxP+2, lyP-4, 14, tamanhoVertical+36);
-			}*/
+			}else {
+				g.fillRect(fxP-10, fyP, 25, tamanhoVertical+36);
+				g.fillRect(lxP+2, lyP-4, 25, tamanhoVertical+36);
+			}
 			//==================fim pintura=========================
 			
 			//==================linhas=========================
@@ -86,17 +90,18 @@ public class CriadorPista {
 			//linhas verticais direita
 			if(i > 0)
 				g.drawLine(lxP+40, lyP-10, lx2P+40, ly2P+10);
-			/*
+			
 			if(i > 3){
+				g.setColor(Color.WHITE);
 				//curva da ponta esquerda superior
-				g.fillArc(fxP-11, fyP, wC, hC, 100, 85);
+				g.fillArc(fxP-11, fyP, wC+30, hC+10, 100, 120);
 				//curva da ponta esquerda inferior
-				g.fillArc(fx2P-11, fy2P-30, wC, hC, -100, -90);
+				g.fillArc(fx2P-11, fy2P-30, wC+30, hC, -100, -100);
 				//curva da ponta direita superior
-				g.fillArc(lxP-15, lyP, wC, hC, 0, 100);
+				g.fillArc(lxP-15, lyP, wC, hC+10, 0, 100);
 				//curva da ponta direita inferior
 				g.fillArc(lx2P-15, ly2P-30, wC, hC, 0, -100);
-			}*/
+			}
 			
 			//==================fim linha=========================
 			
