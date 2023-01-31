@@ -4,16 +4,23 @@ import javax.swing.JPanel;
 import java.awt.Rectangle;
 import javax.swing.border.BevelBorder;
 
+import back.LoadSound;
 import back.sapos;
 
 import java.awt.Color;
 import java.awt.Image;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 public class Panel extends JPanel {
 	private JLabel sapo1;
@@ -23,6 +30,8 @@ public class Panel extends JPanel {
 	private JLabel sapo5;
 	
 	private CriadorPista pista;
+	
+	private Clip back_sound;
 	
 	static final int DISTANCIA_TOTAL = 100;
 	static final int MAX_SALTO = 10;
@@ -46,6 +55,21 @@ public class Panel extends JPanel {
 	 * Create the panel.
 	 */
 	public Panel() {
+		LoadSound load_sound = new LoadSound();
+		
+		try {
+			AudioInputStream sound = load_sound.LoadSound("Sapo-Cururu.wav");
+			back_sound = AudioSystem.getClip();
+			back_sound.open(sound);
+		} catch (LineUnavailableException | UnsupportedAudioFileException | IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		back_sound.setMicrosecondPosition(0);
+		back_sound.loop(5);
+		back_sound.start();
+		
 		setBorder(new BevelBorder(BevelBorder.LOWERED, Color.BLACK, Color.BLACK, Color.BLACK, Color.BLACK));
 		setBounds(new Rectangle(0, 0, 900, 900));
 		setLayout(null);

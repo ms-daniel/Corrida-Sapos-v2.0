@@ -16,16 +16,13 @@ public class sapos extends Thread{
 	private int total_percorrido = 0;
 	private int total_corrida;
 	private JLabel myLabel;
-	private int vertical;
-	private int horizontal;
+
 	
 	public sapos(String nome, int total_corrida, int max_salto, JLabel myLabel, int vert, int hori) {
 		this.nome = nome;
 		this.total_corrida = total_corrida;
 		this.max_salto = max_salto + 1; 
 		this.myLabel = myLabel;
-		this.horizontal = hori;
-		this.vertical = vert;
 	}
 	
 	public void run() {
