@@ -50,6 +50,9 @@ public class CriadorPista {
 		
 		g.fillRect(fxP+30, fyP-125, 5, 25*5);
 		
+		g.setColor(Color.WHITE);
+		g.fillRect(lxP-10, lyP-124, 5, 123);
+		
 		return new ImageIcon(buffer);
 	}
 }

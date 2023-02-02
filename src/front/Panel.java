@@ -21,6 +21,7 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import javax.swing.JTextPane;
 
 public class Panel extends JPanel {
 	private JLabel sapo1;
@@ -28,6 +29,9 @@ public class Panel extends JPanel {
 	private JLabel sapo3;
 	private JLabel sapo4;
 	private JLabel sapo5;
+	
+	private JLabel classificados[];
+	private JTextPane relatorio;
 	
 	private CriadorPista pista;
 	
@@ -38,16 +42,17 @@ public class Panel extends JPanel {
 	
 	
 	private void startWalk() {
-		sapos sapo1T = new sapos("Aucru", 750, 20, sapo1, 200, 790);
-		sapos sapo2T = new sapos("Pirarucu", 750, 20, sapo2, 200, 790);
-		sapos sapo3T = new sapos("Alcatra", 750, 20, sapo3, 200, 790);
-		sapos sapo4T = new sapos("Neiva", 750, 20, sapo4, 200, 790);
-		sapos sapo5T = new sapos("Invisivel", 750, 20, sapo4, 200, 790);
+		sapos sapo1T = new sapos("Aucru1",     750, 20, sapo1, 200, 790, classificados, relatorio);
+		sapos sapo2T = new sapos("Pirarucu2",  750, 20, sapo2, 200, 790, classificados, relatorio);
+		sapos sapo3T = new sapos("Alcatra3",   750, 20, sapo3, 200, 790, classificados, relatorio);
+		sapos sapo4T = new sapos("Neiva4",     750, 20, sapo4, 200, 790, classificados, relatorio);
+		sapos sapo5T = new sapos("Invisivel5", 750, 20, sapo5, 200, 790, classificados, relatorio);
 		
 		sapo1T.start();
 		sapo2T.start();
 		sapo3T.start();
 		sapo4T.start();
+		sapo5T.start();
 	}
 	
 	//private ImageIcon sapo1img = new ImageIcon("sapo1.png");
@@ -105,14 +110,46 @@ public class Panel extends JPanel {
 		add(sapo4);
 		
 		sapo5 = new JLabel();
+		sapo5.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		sapo5.setIcon(new ImageIcon(Panel.class.getResource("")));
 		sapo5.setBounds(20, 122, 40, 23);
 		add(sapo5);
+		
+		relatorio = new JTextPane();
+		relatorio.setEditable(false);
+		relatorio.setText("");
+		relatorio.setBounds(386, 162, 323, 142);
+		add(relatorio);
 		
 		JLabel plataforma = new JLabel("New label");
 		plataforma.setBounds(10, 11, 820, 400);
 		add(plataforma);
 		
 		pista = new CriadorPista(plataforma);
+		
+		classificados = new JLabel[6];
+		classificados[0] = new JLabel("--------------Classificados--------------");
+		classificados[0].setBounds(20, 180, 250, 30);
+		add(classificados[0]);
+		
+		classificados[1] = new JLabel("--------------Classificados--------------");
+		classificados[1].setBounds(20, 200, 250, 30);
+		add(classificados[1]);
+		
+		classificados[2] = new JLabel("--------------Classificados--------------");
+		classificados[2].setBounds(20, 220, 250, 30);
+		add(classificados[2]);
+		
+		classificados[3] = new JLabel("--------------Classificados--------------");
+		classificados[3].setBounds(20, 240, 250, 30);
+		add(classificados[3]);
+		
+		classificados[4] = new JLabel("--------------Classificados--------------");
+		classificados[4].setBounds(20, 260, 250, 30);
+		add(classificados[4]);
+		
+		classificados[5] = new JLabel("--------------Classificados--------------");
+		classificados[5].setBounds(20, 280, 250, 30);
+		add(classificados[5]);
 	}
 }
